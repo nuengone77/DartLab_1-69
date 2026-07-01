@@ -1,18 +1,28 @@
 void main() {
-  String? middleName;
-  String city = 'Nakhon Sawan';
+  List<String> subjects = ['Network', 'Mobile Application', 'Game Development'];
+  print('Number of subjects: ${subjects.length}');
+  print('First subject: ${subjects[0]}');
+  print('Last subject: ${subjects[subjects.length - 1]}');
+  subjects.add('Machine Learning');
+  print('Updated subjects: ${subjects}');
 
-  int middleNameLength = middleName?.length ?? 0;
-  print('Middle name length: ${middleNameLength}');
+  print('---');
 
-  int cityLength = city.length;
-  print('City length: ${cityLength}');
+  Map<String, int> studentScores = {'Network': 49, 'Mobile Application': 68};
 
-  print('Middle name before assignment: ${middleName}');
+  print('Score for Network: ${studentScores['Network']}');
+  studentScores['Game Development'] = 89;
+  print('Updated scores: ${studentScores}');
 
-  middleName ??= 'N/A';
-  print('Middle name after assignment: ${middleName}');
+  for (var i in studentScores.keys) {
+    if (i.contains('a')) {
+      print('All subjects in map: ${i}');
+    }
+  }
 
-  middleName ??= 'Something Else';
-  print('Middle name after second assignment: ${middleName}');
+  for (var i in studentScores.keys) {
+    if (studentScores[i]! > 50) {
+      print('ALL scores in map: ${studentScores[i]}');
+    }
+  }
 }
