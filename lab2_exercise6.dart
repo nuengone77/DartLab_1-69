@@ -1,9 +1,5 @@
 import 'dart:math';
 
-void greet(String name) {
-  print('hello $name!');
-}
-
 int multiply(int a, int b) => a * b;
 
 double calculateAreaSquare({required double width, required double height}) {
@@ -19,7 +15,6 @@ double calculateVolumeCylinder({required double radius, required double height})
 }
 
 void main() {
-  greet('somchai');
 
   int product = multiply(7, 6);
   print('7 * 6 = $product');
