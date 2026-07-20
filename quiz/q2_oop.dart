@@ -1,17 +1,11 @@
 //2.5  การแจงนับและสมาชิกของคลาส
 enum OrderStatus {pending, paid, cancelled}
 void checkStatus(OrderStatus status) {
-  switch (status) {
-    case OrderStatus.pending:
-      print('สถานะ: รอชำระเงิน');
-      break;
-    case OrderStatus.paid:
-      print('สถานะ: ชำระเงินแล้ว');
-      break;
-    case OrderStatus.cancelled:
-      print('สถานะ: ยกเลิกคำสั่งซื้อ');
-      break;
-  }
+  print(switch (status) {
+    OrderStatus.pending => 'สถานะ: รอชำระเงิน',
+    OrderStatus.paid => 'สถานะ: ชำระเงินแล้ว',
+    OrderStatus.cancelled => 'สถานะ: ยกเลิกคำสั่งซื้อ',
+  });
 }
 //2.1 คลาสนามธรรม (Abstraction)
 abstract class MenuItem{
@@ -46,16 +40,12 @@ class Food extends MenuItem{
 
   Food(String name,double basePrice,this.size):super(name,basePrice);
   @override
-  double price(){
-    switch(size){
-      case Sizes.S:
-        return basePrice * 1.0;
-      case Sizes.M:
-        return basePrice * 1.2;
-      case Sizes.L:
-        return basePrice * 1.5;
-    }
-  }
+  double price() => switch(size){
+      Sizes.S => basePrice * 1.0,
+      Sizes.M => basePrice * 1.5,
+      Sizes.L => basePrice * 2.0,
+    };
+  
 }
 //2.4 การห่อหุ้ม (Encapsulation)
 class Wallet{
